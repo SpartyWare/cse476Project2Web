@@ -8,10 +8,10 @@
 require_once "db.inc.php";
 echo '<?xml version="1.0" encoding="1.0" ?>';
 
-/*if(!isset($_GET['magic']) || $_GET['magic'] != "NechAtHa6RuzeR8x") {
+if(!isset($_GET['magic']) || $_GET['magic'] != "NechAtHa6RuzeR8x") {
     echo '<login status="no" msg="magic" />';
     exit;
-}*/
+}
 
 if(!isset($_GET['username']) || !isset($_GET['password'])) {
     echo '<birdGame status="no" msg="Username or Password Missing" />';
@@ -19,7 +19,10 @@ if(!isset($_GET['username']) || !isset($_GET['password'])) {
 }
 
 
+
 /*$user = $_GET['username'];
+$length = strlen($user);
+var_dump($length);
 $password = $_GET['password'];
 echo <<<XML
 <tag user="$user" pw="$password" />

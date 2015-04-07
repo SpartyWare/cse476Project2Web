@@ -39,6 +39,18 @@ function processXml($xmltext) {
                 if($xml->nodeType == XMLReader::ELEMENT && $xml->name == "newuser"){
                     $username = $xml->getAttribute("username");
                     $password = $xml->getAttribute("password");
+                    $usernameLen = strlen($username);
+                    $passLen = strlen($password);
+
+                    if($usernameLen >100){
+                        echo '<birdGame status="no" msg="Username to Long">';
+                        exit;
+                    }
+                    if($passLen > 32){
+                        echo '<birdGame status="no" msg="Password to Long">';
+                        exit;
+                    }
+
                     if(newUser($pdo, $username, $password)){
                         echo '<birdGame status="yes"/>';
                         exit;
