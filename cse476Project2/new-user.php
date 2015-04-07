@@ -44,7 +44,9 @@ function processXml($xmltext) {
                         exit;
                     }
                     echo '<birdGame status="no" msg="Username Already Exists">';
+                    exit;
                 }
+
             }
         }
     }
@@ -62,16 +64,16 @@ function processXml($xmltext) {
  */
 function newUser($pdo, $username, $password) {
 
-    if(userExists($pdo,$username)) {
+    if(!userExists($pdo,$username)) {
+        $sql =<<<SQL
+INSERT INTO birdUser(username,password)
+VALUES(?,?)
+SQL;
+        $statement = $pdo->prepare($sql);
 
-        // Does the user exist in the database?
-        $query = <<<QUERY
-REPLACE INTO birdUser(username, password)
-VALUES($username, $password)
-QUERY;
-        if (!$pdo->query($query)) {
-            echo '<birdGame status="no" msg="insertfail">' . $query . '</birdGame>';
-            exit;
+        $statement->execute(array($username,$password));
+        if($statement->rowCount() === 0) {
+            return null;
         }
         return true;
     }
@@ -81,10 +83,10 @@ QUERY;
 function userExists($pdo, $username){
     // Does the user exist in the database?
     $userQ = $pdo->quote($username);
-    $query = "SELECT id,username,password from birdUser where username=$userQ";
+    $query = "SELECT id from birdUser where username=$userQ";
 
     $rows = $pdo->query($query);
-    if($rows != 0) {
+    if(count($rows) != 0) {
         return false;
     }
     return true;
