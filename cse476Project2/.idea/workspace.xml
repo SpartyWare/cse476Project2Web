@@ -25,37 +25,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="game-login.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game-login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game-login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75" vertical-offset="60" max-vertical-offset="1005">
-              <caret line="10" column="64" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.5503212" vertical-offset="1183" max-vertical-offset="2070">
+              <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
               <folding>
-                <marker date="1428441105000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+                <marker date="1428694655000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+                <marker date="1428694655000" expanded="true" signature="1761:1800" placeholder="SELECT * FRO..birdUser..." />
+                <marker date="1428694655000" expanded="true" signature="2261:2330" placeholder="INSERT INTO ..." />
+                <marker date="1428694655000" expanded="true" signature="2555:2594" placeholder="SELECT id fr..birdUser..." />
+                <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+                <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+                <marker date="1428694655000" expanded="true" signature="2773:2823" placeholder="UPDATE birdU..." />
+                <marker date="1428694655000" expanded="true" signature="2975:3028" placeholder="UPDATE birdU..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44117647" vertical-offset="0" max-vertical-offset="544">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="330">
               <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-user.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new-user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25" vertical-offset="585" max-vertical-offset="1650">
-              <caret line="49" column="65" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
-              <folding>
-                <marker date="1428441002000" expanded="true" signature="2352:2403" placeholder="INSERT INTO ..." />
-                <marker date="1428441002000" expanded="true" signature="2768:2807" placeholder="SELECT id fr..birdUser..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -67,8 +61,8 @@
       <list>
         <option value="$PROJECT_DIR$/db.inc.php" />
         <option value="$PROJECT_DIR$/new-user.php" />
-        <option value="$PROJECT_DIR$/game-login.php" />
         <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/game-login.php" />
       </list>
     </option>
   </component>
@@ -78,7 +72,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="width" value="714" />
     <option name="height" value="828" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -104,7 +98,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -125,6 +118,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -155,16 +149,15 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="79cf03a8-bc73-4a48-af82-490965246f42" server_name="mobiledev-proj2checkpoint">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
       <tasks />
-      <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="79cf03a8-bc73-4a48-af82-490965246f42" server_name="mobiledev-proj2checkpoint">
       <method />
     </configuration>
     <list size="0" />
@@ -183,30 +176,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="828" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="714" height="828" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19021739" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19014084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19196428" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20171674" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108726755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18898809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -234,10 +227,53 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/game-login.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1005">
+          <caret line="10" column="64" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <marker date="1428694655000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="1761:1800" placeholder="SELECT * FRO..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2261:2330" placeholder="INSERT INTO ..." />
+            <marker date="1428694655000" expanded="true" signature="2555:2594" placeholder="SELECT id fr..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2823" placeholder="UPDATE birdU..." />
+            <marker date="1428694655000" expanded="true" signature="2975:3028" placeholder="UPDATE birdU..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new-user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1650">
+          <caret line="49" column="65" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
+          <folding>
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="SELECT id fr..birdUser..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game-login.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1005">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <marker date="1428441105000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="1761:1800" placeholder="SELECT * FRO..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2261:2330" placeholder="INSERT INTO ..." />
+            <marker date="1428694655000" expanded="true" signature="2555:2594" placeholder="SELECT id fr..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2823" placeholder="UPDATE birdU..." />
+            <marker date="1428694655000" expanded="true" signature="2975:3028" placeholder="UPDATE birdU..." />
           </folding>
         </state>
       </provider>
@@ -255,38 +291,45 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1428441002000" expanded="true" signature="2352:2403" placeholder="INSERT INTO ..." />
-            <marker date="1428441002000" expanded="true" signature="2768:2807" placeholder="SELECT id fr..birdUser..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75" vertical-offset="60" max-vertical-offset="1005">
-          <caret line="10" column="64" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="64" />
-          <folding>
-            <marker date="1428441105000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="SELECT id fr..birdUser..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new-user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25" vertical-offset="585" max-vertical-offset="1650">
-          <caret line="49" column="65" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
+        <state vertical-scroll-proportion="-0.9216061" vertical-offset="1127" max-vertical-offset="1650">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <marker date="1428441002000" expanded="true" signature="2352:2403" placeholder="INSERT INTO ..." />
-            <marker date="1428441002000" expanded="true" signature="2768:2807" placeholder="SELECT id fr..birdUser..." />
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1428688169000" expanded="true" signature="-1:-1" placeholder="SELECT id fr..birdUser..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44117647" vertical-offset="0" max-vertical-offset="544">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="330">
           <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5503212" vertical-offset="1183" max-vertical-offset="2070">
+          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+          <folding>
+            <marker date="1428694655000" expanded="true" signature="1048:1105" placeholder="SELECT id,us..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="1761:1800" placeholder="SELECT * FRO..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2261:2330" placeholder="INSERT INTO ..." />
+            <marker date="1428694655000" expanded="true" signature="2555:2594" placeholder="SELECT id fr..birdUser..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2790" placeholder="UPDATE game ..." />
+            <marker date="1428694655000" expanded="true" signature="2773:2823" placeholder="UPDATE birdU..." />
+            <marker date="1428694655000" expanded="true" signature="2975:3028" placeholder="UPDATE birdU..." />
+          </folding>
         </state>
       </provider>
     </entry>

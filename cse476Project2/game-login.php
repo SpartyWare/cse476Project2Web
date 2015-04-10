@@ -54,9 +54,80 @@ function getUser($pdo, $user, $password) {
             echo '<birdGame status="no" msg="password error" />';
             exit;
         }
+        if(waiting($pdo,$user,$password)){
+            echo '<birdGame status ="yes"/>';
+            exit;
+        }
         echo '<birdGame status ="yes"/>';
         return $row;
     }
     echo '<birdGame status="no" msg="user error" />';
     exit;
+}
+
+function waiting($pdo, $username, $password){
+    //Is there anyone else waiting to be matched.
+    $sql =<<<SQL
+SELECT * FROM birdUser
+WHERE status = 1
+SQL;
+    $statement = $pdo->prepare($sql);
+
+    $statement->execute();
+    if($statement->rowCount() === 0) {
+        playerWaiting($pdo, $username, $password);
+        return false;
+    }
+    foreach($statement as $row){
+        if($row['username'] != $username){
+            matched($pdo, getId($pdo,$username), getId($pdo,$row['username']));
+            return true;
+        }
+    }
+    return false;
+}
+
+function matched($pdo, $id1, $id2){
+    $sql =<<<SQL
+INSERT INTO game(player1,player2,over,gamexml,turn)
+VALUES(?,?,?,?,?)
+SQL;
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($id1,$id2,false,"",0));
+    unsetPlayerStatus($pdo,$id1,$id2);
+
+}
+
+
+function getId($pdo,$username){
+    $userQ = $pdo->quote($username);
+    $query = "SELECT id from birdUser where username=$userQ";
+
+    $rows = $pdo->query($query);
+    if($row = $rows->fetch()) {
+        return $row['id'];
+    }
+
+}
+
+function playerWaiting($pdo,$username,$password){
+    $sql =<<<SQL
+UPDATE  birdUser
+SET status = 1
+WHERE username = ?
+SQL;
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($username));
+}
+
+function unsetPlayerStatus($pdo,$id1,$id2){
+    $sql =<<<SQL
+UPDATE birdUser
+SET status = 0
+WHERE id = ? or id = ?
+SQL;
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($id1, $id2));
 }
