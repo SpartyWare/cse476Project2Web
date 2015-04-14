@@ -18,17 +18,6 @@ if(!isset($_GET['username']) || !isset($_GET['password'])) {
     exit;
 }
 
-
-
-/*$user = $_GET['username'];
-$length = strlen($user);
-var_dump($length);
-$password = $_GET['password'];
-echo <<<XML
-<tag user="$user" pw="$password" />
-XML;
-*/
-
 $pdo = pdo_connect();
 
 $user = getUser($pdo, $_GET['username'], $_GET['password']);
@@ -55,10 +44,12 @@ function getUser($pdo, $user, $password) {
             exit;
         }
         if(waiting($pdo,$user,$password)){
-            echo '<birdGame status ="yes"/>';
+            $userid = getId($pdo,$user);
+            $gameId = getGameId($pdo,$userid);
+            echo '<birdGame status ="yes" userstatus="0" gameid="'.$gameId.'"/>';
             exit;
         }
-        echo '<birdGame status ="yes"/>';
+        echo '<birdGame status ="yes" userstatus="1"/>';
         return $row;
     }
     echo '<birdGame status="no" msg="user error" />';
@@ -93,7 +84,7 @@ INSERT INTO game(player1,player2,over,gamexml,turn)
 VALUES(?,?,?,?,?)
 SQL;
     $statement = $pdo->prepare($sql);
-    $statement->execute(array($id1,$id2,false,"",0));
+    $statement->execute(array($id1,$id2,false,"",$id1));
     unsetPlayerStatus($pdo,$id1,$id2);
 
 }
@@ -130,4 +121,17 @@ SQL;
 
     $statement = $pdo->prepare($sql);
     $statement->execute(array($id1, $id2));
+}
+
+function getGameId($pdo, $userid){
+    $sql =<<<SQL
+SELECT * FROM game
+WHERE player1 = ? or player2 = ?
+SQL;
+    $statement = $pdo->prepare($sql);
+
+    $statement->execute(array($userid, $userid));
+    foreach($statement as $row) {
+        return $row['id'];
+    }
 }
