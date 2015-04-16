@@ -33,6 +33,8 @@ function endGame($pdo,$username){
 $sql1 =<<<SQL
 UPDATE game
 SET gamexml = ""
+SET player1 = 0
+SET player2 = 0
 WHERE id = ?
 SQL;
 
