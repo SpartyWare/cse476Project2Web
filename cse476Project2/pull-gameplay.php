@@ -24,9 +24,19 @@ SQL;
     $statement = $pdo->prepare($sql);
     $statement->execute(array( $id));
     foreach($statement as $row) {
+        if($row['gamexml']==""){
+            echo '<?xml version="1.0" encoding="1.0" ?>';
+            echo '<birdGame status="yes"/>';
+            exit;
+        }
         echo $row['gamexml'];
         exit;
     }
+}
+else{
+    echo '<?xml version="1.0" encoding="1.0" ?>';
+    echo '<birdGame status="no"/>';
+    exit;
 }
 
 function getPlayerTurn($pdo,$id){

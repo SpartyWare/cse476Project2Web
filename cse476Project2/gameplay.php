@@ -26,31 +26,47 @@ $userId = getId($pdo,$_GET['username']);
 $magic = $_GET['magic'];
 
 playerMadeMove($pdo,$xml,$id,$userId);
-echo '<birdGame status="'.$xml.'"/>';
+echo '<birdGame status="yes"/>';
 exit;
 
 function playerMadeMove($pdo,$xml,$id,$userid){
+    $playersTurn = changeTurn($pdo,$userid,$id);
     $sql =<<<SQL
 UPDATE game
-SET gamexml = ?
+SET gamexml = ?, turn = ?
 WHERE id = ?
 SQL;
 
     $statement = $pdo->prepare($sql);
-    $statement->execute(array($xml, $id));
-
-    changeTurn($pdo,$userid,$id);
+    $statement->execute(array($xml,$playersTurn, $id));
 }
 
 function changeTurn($pdo,$userid,$id){
+    $playersTurn = "";
     $sql =<<<SQL
-UPDATE game
-SET turn = ?
+SELECT player1,player2,turn FROM game
 WHERE id = ?
 SQL;
 
     $statement = $pdo->prepare($sql);
-    $statement->execute(array($userid, $id));
+    $statement->execute(array($id));
+    foreach($statement as $row) {
+         if($row['turn']==$row['player1']){
+             $playersTurn=$row['player2'];
+         }
+        else{
+            $playersTurn=$row['player1'];
+        }
+    }
+    return $playersTurn;
+//    $sql2 =<<<SQL
+//UPDATE game
+//SET turn = ?
+//WHERE id = ?
+//SQL;
+//
+//    $statement2 = $pdo->prepare($sql2);
+//    $statement2->execute(array($playersTurn, $id));
 }
 
 function getPlayerTurn($pdo,$id){
@@ -65,6 +81,8 @@ SQL;
         return $row['turn'];
     }
 }
+
+
 
 
 function getId($pdo,$username){
