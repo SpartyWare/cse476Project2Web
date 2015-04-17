@@ -17,30 +17,34 @@ $pdo = pdo_connect();
 $id = $_GET['id'];
 if(getPlayerTurn($pdo,$_GET['id']) == getId($pdo,$_GET['username'])){
 
-    isGameOver($pdo,$id);
+    if(!isGameOver($pdo,$id)) {
 
-
-    $sql =<<<SQL
+        $sql = <<<SQL
 SELECT gamexml FROM game
 WHERE id = ?
 SQL;
 
-    $statement = $pdo->prepare($sql);
-    $statement->execute(array( $id));
-    foreach($statement as $row) {
-        if($row['gamexml']==""){
-            echo '<?xml version="1.0" encoding="1.0" ?>';
-            echo '<birdGame status="yes"/>';
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($id));
+        foreach ($statement as $row) {
+            if ($row['gamexml'] == "") {
+                echo '<?xml version="1.0" encoding="1.0" ?>';
+                echo '<birdGame status="yes"/>';
+                exit;
+            }
+            echo $row['gamexml'];
             exit;
         }
-        echo $row['gamexml'];
-        exit;
     }
 }
-else{
-    echo '<?xml version="1.0" encoding="1.0" ?>';
-    echo '<birdGame status="no"/>';
-    exit;
+else {
+
+    if (!isGameOver($pdo, $id)) {
+
+        echo '<?xml version="1.0" encoding="1.0" ?>';
+        echo '<birdGame status="no"/>';
+        exit;
+    }
 }
 
 function getPlayerTurn($pdo,$id){
@@ -80,7 +84,7 @@ SQL;
     if($result['over']==1){
         echo '<?xml version="1.0" encoding="1.0" ?>';
         echo '<birdGame status="Game Over"/>';
-        exit;
+        return true;
     }
-
+return false;
 }
