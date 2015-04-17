@@ -16,6 +16,10 @@ if(!isset($_GET['id']) || !isset($_GET['username'])) {
 $pdo = pdo_connect();
 $id = $_GET['id'];
 if(getPlayerTurn($pdo,$_GET['id']) == getId($pdo,$_GET['username'])){
+
+    isGameOver($pdo,$id);
+
+
     $sql =<<<SQL
 SELECT gamexml FROM game
 WHERE id = ?
@@ -60,6 +64,23 @@ function getId($pdo,$username){
     $rows = $pdo->query($query);
     if($row = $rows->fetch()) {
         return $row['id'];
+    }
+
+}
+
+function isGameOver($pdo,$id){
+    $sql =<<<SQL
+SELECT over FROM game
+WHERE id = ?
+SQL;
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array( $id));
+    $result = $statement->fetch();
+    if($result['over']==1){
+        echo '<?xml version="1.0" encoding="1.0" ?>';
+        echo '<birdGame status="Game Over"/>';
+        exit;
     }
 
 }

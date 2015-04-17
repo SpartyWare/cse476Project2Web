@@ -14,33 +14,37 @@ if(!isset($_GET['magic']) || $_GET['magic'] != "NechAtHa6RuzeR8x") {
     exit;
 }
 
-if(!isset($_GET['username']) || !isset($_GET['password'])) {
-    echo '<birdGame status="no" msg="Username or Password Missing" />';
+if(!isset($_GET['username'])) {
+    echo '<birdGame status="no" msg="Username Missing" />';
+    exit;
+}
+if(!isset($_GET['id'])){
+    echo '<birdGame status="no" msg="Id Missing" />';
     exit;
 }
 
 $username = $_GET['username'];
 
-
 $pdo = pdo_connect();
 
+if($_GET['id']==-1){
+    makeUserLoggedOut($pdo,$username);
+}
 endGame($pdo,$username);
 
 function endGame($pdo,$username){
-    $userQ = $pdo->quote($username);
-    $id = getGameId($pdo, $username);
+    //$id = getGameId($pdo, $username);
+    $gameId = $_GET['id'];
 
 $sql1 =<<<SQL
 UPDATE game
-SET gamexml = ""
-SET player1 = 0
-SET player2 = 0
+SET over = 1
 WHERE id = ?
 SQL;
 
     $statement = $pdo->prepare($sql1);
 
-    $statement->execute(array($id));
+    $statement->execute(array($gameId));
 
 }
 
@@ -57,8 +61,11 @@ function getId($pdo,$username){
 
 function getGameId($pdo, $userid){
     $sql =<<<SQL
-SELECT * FROM game
-WHERE player1 = ? or player2 = ?
+SELECT *
+FROM game
+WHERE player1 =?
+OR player2 =?
+ORDER BY id DESC
 SQL;
     $statement = $pdo->prepare($sql);
 
@@ -66,4 +73,17 @@ SQL;
     foreach($statement as $row) {
         return $row['id'];
     }
+}
+
+
+function makeUserLoggedOut($pdo,$username){
+    $sql1 =<<<SQL
+UPDATE birdUser
+SET status = 0
+WHERE username = ?
+SQL;
+
+    $statement = $pdo->prepare($sql1);
+
+    $statement->execute(array($username));
 }

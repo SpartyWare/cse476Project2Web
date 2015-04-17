@@ -7,7 +7,7 @@ if(!isset($_POST['xml'])) {
     echo '<birdGame status="no" msg="missing XML" />';
     exit;
 }
-
+$returnValOfUserExists;
 processXml(stripslashes($_POST['xml']));
 
 /**
@@ -55,7 +55,7 @@ function processXml($xmltext) {
                         echo '<birdGame status="yes"/>';
                         exit;
                     }
-                    echo '<birdGame status="no" msg="Username Already Exists">';
+                    echo '<birdGame status="no" msg="Username Already Exists.">';
                     exit;
                 }
 
@@ -76,7 +76,7 @@ function processXml($xmltext) {
  */
 function newUser($pdo, $username, $password) {
 
-    if(!userExists($pdo,$username)) {
+    if(userExists($pdo,$username)) {
         $sql =<<<SQL
 INSERT INTO birdUser(username,password)
 VALUES(?,?)
@@ -84,9 +84,6 @@ SQL;
         $statement = $pdo->prepare($sql);
 
         $statement->execute(array($username,$password));
-        if($statement->rowCount() === 0) {
-            return null;
-        }
         return true;
     }
     return false;
@@ -94,11 +91,15 @@ SQL;
 
 function userExists($pdo, $username){
     // Does the user exist in the database?
-    $userQ = $pdo->quote($username);
-    $query = "SELECT id from birdUser where username=$userQ";
 
-    $rows = $pdo->query($query);
-    if(count($rows) != 0) {
+    $sql =<<<SQL
+SELECT id FROM birdUser WHERE username = ?
+SQL;
+    $statement = $pdo->prepare($sql);
+
+    $statement->execute(array($username));
+    $rows = $statement->fetchAll();
+    if(count($rows) > 0) {
         return false;
     }
     return true;

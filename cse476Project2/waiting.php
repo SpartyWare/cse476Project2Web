@@ -60,8 +60,11 @@ function getId($pdo,$username){
 
 function getGameId($pdo, $userid){
     $sql =<<<SQL
-SELECT * FROM game
-WHERE player1 = ? or player2 = ?
+SELECT *
+FROM game
+WHERE player1 =?
+OR player2 =?
+ORDER BY id DESC
 SQL;
     $statement = $pdo->prepare($sql);
 

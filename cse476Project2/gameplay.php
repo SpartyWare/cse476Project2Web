@@ -31,42 +31,49 @@ exit;
 
 function playerMadeMove($pdo,$xml,$id,$userid){
     $playersTurn = changeTurn($pdo,$userid,$id);
-    $sql =<<<SQL
+    if($playersTurn!= null) {
+        $sql = <<<SQL
 UPDATE game
 SET gamexml = ?, turn = ?
 WHERE id = ?
 SQL;
 
-    $statement = $pdo->prepare($sql);
-    $statement->execute(array($xml,$playersTurn, $id));
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($xml, $playersTurn, $id));
+    }
+
 }
 
 function changeTurn($pdo,$userid,$id){
-    $playersTurn = "";
-    $sql =<<<SQL
+    //Get Placed count
+    $placedCount = getPlacedCount($pdo,$id);
+
+    if($placedCount%2 ==0){
+        if($placedCount==0){ incrementPlacedCount($pdo,$id);}
+        $playersTurn = "";
+        $sql =<<<SQL
 SELECT player1,player2,turn FROM game
 WHERE id = ?
 SQL;
 
-    $statement = $pdo->prepare($sql);
-    $statement->execute(array($id));
-    foreach($statement as $row) {
-         if($row['turn']==$row['player1']){
-             $playersTurn=$row['player2'];
-         }
-        else{
-            $playersTurn=$row['player1'];
+        $statement = $pdo->prepare($sql);
+        $statement->execute(array($id));
+        foreach($statement as $row) {
+            if($row['turn']==$row['player1']){
+                $playersTurn=$row['player2'];
+            }
+            else{
+                $playersTurn=$row['player1'];
+            }
         }
+        if($placedCount!=0){incrementPlacedCount($pdo,$id);}
+        return $playersTurn;
     }
-    return $playersTurn;
-//    $sql2 =<<<SQL
-//UPDATE game
-//SET turn = ?
-//WHERE id = ?
-//SQL;
-//
-//    $statement2 = $pdo->prepare($sql2);
-//    $statement2->execute(array($playersTurn, $id));
+    incrementPlacedCount($pdo,$id);
+    return null;
+
+
+
 }
 
 function getPlayerTurn($pdo,$id){
@@ -94,4 +101,27 @@ function getId($pdo,$username){
         return $row['id'];
     }
 
+}
+
+function incrementPlacedCount($pdo,$id){
+    $sql =<<<SQL
+UPDATE game
+SET placedCount = placedCount + 1
+WHERE id = ?
+SQL;
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($id));
+}
+
+function getPlacedCount($pdo, $id){
+    $sql =<<<SQL
+SELECT * FROM game
+WHERE id = ?
+SQL;
+
+    $statement = $pdo->prepare($sql);
+    $statement->execute(array($id));
+    $result = $statement->fetch();
+    return $result['placedCount'];
 }
