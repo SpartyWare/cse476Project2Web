@@ -34,14 +34,22 @@ function playerMadeMove($pdo,$xml,$id,$userid){
     if($playersTurn!= null) {
         $sql = <<<SQL
 UPDATE game
-SET gamexml = ?, turn = ?
+SET  turn = ?
 WHERE id = ?
 SQL;
 
         $statement = $pdo->prepare($sql);
-        $statement->execute(array($xml, $playersTurn, $id));
+        $statement->execute(array($playersTurn, $id));
     }
 
+    $sql1 = <<<SQL
+UPDATE game
+SET gamexml = ?
+WHERE id = ?
+SQL;
+
+    $statement = $pdo->prepare($sql1);
+    $statement->execute(array($xml, $id));
 }
 
 function changeTurn($pdo,$userid,$id){
